@@ -22,14 +22,31 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         forwardInput = Input.GetAxis("Vertical");
 
-        //We move the vehicle forward
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
-       
-        //We turn the vehicle
-        transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
+
+        //transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+
+        
+        //
 
         //EXTRA CODES
         //transform.Translate(0, 0, 1);
         //transform.Translate(Vector3.right * Time.deltaTime * turnSpeed * horizontalInput);
+
+
+
+        //We move the vehicle forward
+        if (Input.GetKey("w") || Input.GetKey("s"))
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+        }
+        //We turn the vehicle
+        if (Input.GetKey("d") || Input.GetKey("a"))
+        {
+            transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
+          
+        }
+      
+
+
     }
 }
